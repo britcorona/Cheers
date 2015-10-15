@@ -13,21 +13,23 @@ namespace Cheers
             Console.WriteLine("Hello there! What's your name?");
             string name = Console.ReadLine();
             Console.WriteLine("Hi " + name);
-            name = name.ToLower();
-            foreach (char letter in name)
+            foreach (char letter in name.ToLower())
             {
-                string aOrAn = "a";
-                foreach (char nonvoiced in "halfnorsemix")
+                if (Char.IsLetter(letter))
                 {
-                    if (letter == nonvoiced)
+                    string article = "a";
+                    foreach (char nonvoiced in "halfnorsemix")
                     {
-                        aOrAn = "an";
+                        if (letter == nonvoiced)
+                        {
+                            article = "an";
+                        }
                     }
+                    Console.WriteLine("Give me " + article + "... " + letter);
                 }
-                Console.WriteLine("Give me " + aOrAn + "... " + letter);
             }
             name = name.ToUpper();
-            Console.WriteLine(name + "'s just GRAND!");
+            Console.WriteLine(name + " is just GRAND!");
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
         }
